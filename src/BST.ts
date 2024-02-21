@@ -69,39 +69,24 @@ class BST{
 
     return node
    }
+
+   public search(key:number):boolean{
+    return this.searchNode(this.root, key)
+   }
+
+   public searchNode(node:TreeNode|null, key:number):boolean{
+    if(!node)return false;
+
+    if(key<node.key){
+        return this.searchNode(node.left, key)
+
+    }else if(key>node.key){
+        return this.searchNode(node.right,key)
+    }else{
+        return true
+    }
+   }
    
 }
 
 export default BST
-
-// class BinarySearchTree{
-//     public root:TreeNode|null;
-
-//     constructor(){
-//         this.root = null;
-//     }
-
-//     //insert 
-//     public insert(key:number):void{
-//         this.root = this._insert(this.root, key);
-//     }
-
-
-//     //inserthelper
-//     private _insert(node:TreeNode|null, key:number):TreeNode{
-//         if(!node){
-//             return new TreeNode(key)
-//         }
-
-//         if(key<node.key){
-//             node.left = this._insert(node.left, key);
-
-//         }
-//         if(key>node.key){
-//             node.right = this._insert(node.right, key)
-//         }
-
-//         return node;
-
-//     }
-// }
